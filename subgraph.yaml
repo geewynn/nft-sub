@@ -1,0 +1,81 @@
+specVersion: 0.0.4
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: Musicape
+    network: mainnet
+    source:
+      address: "0x7eF8F03E8c0c79D9C957B1DD1EC7Cfd1af1666C6"
+      abi: Musicape
+      startBlock: 15225625
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - Approval
+        - ApprovalForAll
+        - OwnershipTransferred
+        - Transfer
+      abis:
+        - name: Musicape
+          file: ./abis/Musicape.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,indexed uint256)
+          handler: handleTransfer
+      file: ./src/musicape.ts
+  - kind: ethereum
+    name: Townstar
+    network: mainnet
+    source:
+      address: "0xc36cF0cFcb5d905B8B513860dB0CFE63F6Cf9F5c"
+      abi: Townstar
+      startBlock: 10198649
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - Approval
+        - ApprovalForAll
+        - Creator
+        - SupplyLimit
+        - TransferBatch
+        - TransferSingle
+        - URI
+      abis:
+        - name: Townstar
+          file: ./abis/Townstar.json
+      eventHandlers:
+        - event: TransferSingle(indexed address,indexed address,indexed address,uint256,uint256)
+          handler: handleTransferSingle
+      file: ./src/townstar.ts
+  - kind: ethereum
+    name: StickymenToys
+    network: mainnet
+    source:
+      address: "0x2A459947f0ac25eC28C197f09C2d88058a83f3Bb"
+      abi: StickymenToys
+      startBlock: 15188446
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - Approval
+        - ApprovalForAll
+        - OwnershipTransferred
+        - Transfer
+        - burned
+        - maxPerTXChanged
+        - maxPerWalletChanged
+        - minted
+        - saleStateChanged
+      abis:
+        - name: StickymenToys
+          file: ./abis/StickymenToys.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,indexed uint256)
+          handler: handleTransfer
+      file: ./src/stickymen-toys.ts

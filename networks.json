@@ -1,0 +1,16 @@
+{
+  "mainnet": {
+    "Musicape": {
+      "address": "0x7eF8F03E8c0c79D9C957B1DD1EC7Cfd1af1666C6"
+    },
+    "moonbird": {
+      "address": "0x23581767a106ae21c074b2276d25e5c3e136a68b"
+    },
+    "Townstar": {
+      "address": "0xc36cF0cFcb5d905B8B513860dB0CFE63F6Cf9F5c"
+    },
+    "Contract": {
+      "address": "0x2A459947f0ac25eC28C197f09C2d88058a83f3Bb"
+    }
+  }
+}
